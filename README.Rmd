@@ -4,7 +4,7 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r, include = FALSE}
+```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -22,9 +22,9 @@ knitr::opts_chunk$set(
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://cran.r-project.org/web/licenses/MIT)
 <!-- badges: end -->
 
-The goal of **tidyipea** is to provide access to Instituto de Pesquisa Econômica Aplicada (IPEA) dataset, available by the IPEADATA API <http://www.ipeadata.gov.br/api/>.
+The goal of **tidyipea** is to provide access to Instituto de Pesquisa Econômica Aplicada (IPEA) dataset, available by the [IPEADATA API](http://www.ipeadata.gov.br/api/).
 
-This is a work still in a very preliminary stage and probably does not cover all the possibilities of API features or provides adequate robustness against errors. mas pode ser uma alternativa de uso em relação a outros pacotes arqudos do CRAN
+This is a work still in a very preliminary stage and probably does not cover all the possibilities of API features or provides adequate robustness against errors, but it can be an alternative to other packages currently archived on CRAN (see [related works](#related-works) below).
 
 ## Installation
 
@@ -44,20 +44,20 @@ devtools::install_github("schoulten/tidyipea")
 
 This is a basic example which shows you how to get IPEADATA series:
 
-```{r example, eval=FALSE}
+```{r example, warning=FALSE, message=FALSE}
 library(tidyipea)
 library(dplyr)
 
 # Get CAGED data
-my_tbl <- get_ipea(code = c("CAGED12_SALDON12", "CAGED12_DESLIGN12"))
+my_tbl <- tidyipea::get_ipea(code = c("CAGED12_SALDON12", "CAGED12_DESLIGN12"))
 
 dplyr::glimpse(my_tbl)
 ```
 
 To see all available IPEADATA series codes, run this:
 
-```{r codes, eval=FALSE}
-all_codes <- codes_ipea()
+```{r codes}
+all_codes <- tidyipea::codes_ipea()
 
 dplyr::glimpse(all_codes)
 ```

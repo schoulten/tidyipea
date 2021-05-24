@@ -13,13 +13,14 @@ MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://cran.r-project.
 <!-- badges: end -->
 
 The goal of **tidyipea** is to provide access to Instituto de Pesquisa
-Econômica Aplicada (IPEA) dataset, available by the IPEADATA API
-<http://www.ipeadata.gov.br/api/>.
+Econômica Aplicada (IPEA) dataset, available by the [IPEADATA
+API](http://www.ipeadata.gov.br/api/).
 
 This is a work still in a very preliminary stage and probably does not
 cover all the possibilities of API features or provides adequate
-robustness against errors. mas pode ser uma alternativa de uso em
-relação a outros pacotes arqudos do CRAN
+robustness against errors, but it can be an alternative to other
+packages currently archived on CRAN (see [related works](#related-works)
+below).
 
 ## Installation
 
@@ -45,17 +46,31 @@ library(tidyipea)
 library(dplyr)
 
 # Get CAGED data
-my_tbl <- get_ipea(code = c("CAGED12_SALDON12", "CAGED12_DESLIGN12"))
+my_tbl <- tidyipea::get_ipea(code = c("CAGED12_SALDON12", "CAGED12_DESLIGN12"))
 
 dplyr::glimpse(my_tbl)
+#> Rows: 30
+#> Columns: 3
+#> $ date  <date> 2020-01-01, 2020-02-01, 2020-03-01, 2020-04-01, 2020-05-01, 202~
+#> $ value <dbl> 66818, 188869, -207401, -860503, -331901, -10984, 131010, 249388~
+#> $ code  <fct> CAGED12_SALDON12, CAGED12_SALDON12, CAGED12_SALDON12, CAGED12_SA~
 ```
 
 To see all available IPEADATA series codes, run this:
 
 ``` r
-all_codes <- codes_ipea()
+all_codes <- tidyipea::codes_ipea()
 
 dplyr::glimpse(all_codes)
+#> Rows: 8,874
+#> Columns: 7
+#> $ code       <chr> "ABATE_ABPEAV", "ABATE_ABPEBV", "ABATE_ABPESU", "ABATE_ABQU~
+#> $ name       <chr> "Abate - aves - peso das carcaças", "Abate - bovinos - peso~
+#> $ theme      <fct> Macroeconomic, Macroeconomic, Macroeconomic, Macroeconomic,~
+#> $ source     <fct> IBGE/Coagro, IBGE/Coagro, IBGE/Coagro, IBGE/Coagro, IBGE/Co~
+#> $ freq       <fct> Yearly, Yearly, Yearly, Yearly, Yearly, Yearly, Monthly, Mo~
+#> $ lastupdate <date> 2021-03-18, 2021-03-18, 2021-03-18, 2021-03-18, 2021-03-18~
+#> $ status     <fct> Active, Active, Active, Active, Active, Active, Inactive, A~
 ```
 
 ## Related works
