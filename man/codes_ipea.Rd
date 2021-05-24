@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{codes_ipea}
 \alias{codes_ipea}
-\title{Get vailable series from IPEADATA}
+\title{Get available series from IPEADATA}
 \usage{
 codes_ipea(language = c("en", "br"))
 }

@@ -1,4 +1,4 @@
-#' Get vailable series from IPEADATA
+#' Get available series from IPEADATA
 #'
 #' @param language 	String specifying the selected language. Language options are English ("en", default) and Brazilian portuguese ("br").
 #'
