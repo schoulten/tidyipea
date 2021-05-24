@@ -49,14 +49,18 @@ get_ipea <- function(code){
       tidyr::pivot_longer(colnames(.)) %>%
       dplyr::filter(value == 0)
 
-    warning(
-      paste0(
-        "Code [",
-        paste(flag$name, collapse = ", "),
-        "] not available / not found in IPEADATA."
-      ),
-      call. = FALSE
-    )
+    if (0 %in% flag$value) {
+
+      stop(
+        paste0(
+          "Code [",
+          paste(flag$name, collapse = ", "),
+          "] not available / not found in IPEADATA."
+        ),
+        call. = FALSE
+      )
+
+    }
 
   }
 
