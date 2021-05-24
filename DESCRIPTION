@@ -1,0 +1,23 @@
+Package: tidyipea
+Title: Get data from IPEADATA
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Fernando",
+           family = "da Silva",
+           role = c("aut", "cre"),
+           email = "fernando@fortietwo.com",
+           comment = c(ORCID = "0000-0002-7491-6930"))
+Description: Provides access to Instituto de Pesquisa Econômica Aplicada (IPEA) dataset, available by the IPEADATA API <http://www.ipeadata.gov.br/api/>.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    curl,
+    dplyr,
+    jsonlite,
+    lubridate,
+    magrittr,
+    purrr,
+    tidyr
